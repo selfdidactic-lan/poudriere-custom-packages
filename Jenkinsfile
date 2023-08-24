@@ -7,7 +7,7 @@ pipeline {
 
   parameters {
     string(name: 'PORTS', defaultValue: '2023Q3', description: 'The ports branch to use.')
-    boolean(name: 'UPDATE', defaultValue: true, description: 'Update ports tree before running?')
+    boolean(name: 'UPDATE_BRANCH', defaultValue: true, description: 'Update ports tree before running?')
   }
 
   environment(
@@ -22,10 +22,12 @@ pipeline {
     }
     stage('Preparation') {
       sh """
-        if [ -e /usr/local/poudriere/ports/${PORTS} ];then
+        if [ -e /usr/local/poudriere/ports/${PORTS} ] && [ -n ${UPDATE_BRANCH} ];then
             // Update ports tree
+            echo "Updating branch ${PORTS}"
             sudo poudriere ports -p ${PORTS} -u
         else
+            echo "Pulling new branch ${PORTS}"
             sudo poudriere ports -c -p ${PORTS} -B ${PORTS}
         fi
       """
