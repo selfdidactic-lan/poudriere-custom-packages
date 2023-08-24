@@ -11,7 +11,7 @@ pipeline {
   }
 
   environment{
-    JAIL = "13_2amd64"
+    JAIL = "13-2amd64"
     SET = "customset"
     PKG_LIST = "${WORKSPACE}/packages.list"
   }
