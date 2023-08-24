@@ -1,0 +1,21 @@
+#+title poudriere-custom-packages
+
+Simple [[https://www.jenkins.io/doc/book/pipeline/jenkinsfile/][Jenkinsfile]] with a package list of packages for [[https://github.com/freebsd/poudriere/wiki][poudriere]] to build.
+** Hills to climb
+Need to know how to set up Jenkins and poudriere. Both technologies are very well documented online, and both have friendly communities where questions can be asked.
+I am not opposed to writing such documentation specifically for this use case, but my time is limited, yet, I will welcome gentle nudges to produce a howto or video.
+** Infrastructure Model
+Quite simple actually. You'll set up a Jenkins master on any operating system, and a FreeBSD Jenkins agent running poudriere.
+** Requirements
+1. [[https://www.jenkins.io/][Jenkins]] server set up and ready to roll.
+   This can be installed on an entirely different OS
+   #+begin_src shell
+    # On FreeBSD or in a FreeBSD jail.
+    pkg install jenkins-lts
+   #+end_src
+2. [[https://freebsd.orf][FreeBSD]] with poudriere installed
+   #+begin_src shell
+    # On FreeBSD or in a FreeBSD jail.
+    pkg install poudriere
+   #+end_src
+   Setting up and configuring Jenkins is left to you, but there are tons of online documentation to do so.
