@@ -26,7 +26,6 @@ pipeline {
       steps {
         sh """
         if [ -e /usr/local/poudriere/ports/${PORTS} ] && [ -n ${UPDATE_BRANCH} ];then
-            // Update ports tree
             echo "Updating branch ${PORTS}"
             sudo poudriere ports -p ${PORTS} -u
         else
