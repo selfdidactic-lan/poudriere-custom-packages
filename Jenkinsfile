@@ -33,7 +33,7 @@ pipeline {
       """
     }
     stage('Build') {
-      sh "sudo poudriere bulk -j ${JAIL} -p ${PORTS} -z ${SET} -f ${PKG_LIST}
+      sh "sudo poudriere bulk -j ${JAIL} -p ${PORTS} -z ${SET} -f ${PKG_LIST}"
     }
   }
 }
