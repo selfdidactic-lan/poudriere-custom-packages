@@ -7,7 +7,7 @@ pipeline {
 
   parameters {
     string(name: 'PORTS', defaultValue: '2023Q3', description: 'The ports branch to use.')
-    boolean(name: 'UPDATE_BRANCH', defaultValue: true, description: 'Update ports tree before running?')
+    boolean(name: 'UPDATE_BRANCH', defaultValue: true, description: 'Update ports tree before running.')
   }
 
   environment(
